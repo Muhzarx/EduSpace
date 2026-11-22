@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#142b4a" />
+  <meta name="description" content="EduSpace - platform pembelajaran terpadu untuk SMP dan SMA." />
+  <title>EduSpace — Ruang Belajar Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <section id="authView" class="auth-shell">
+    <div class="auth-visual">
+      <div class="brand brand-light"><span class="brand-mark">E</span><span>EduSpace</span></div>
+      <div class="auth-copy">
+        <span class="eyebrow">SATU RUANG UNTUK BERTUMBUH</span>
+        <h1>Belajar lebih terarah. Terhubung tanpa batas.</h1>
+        <p>Materi, tugas, diskusi, dan kelas virtual dalam satu ruang belajar digital.</p>
+      </div>
+      <div class="visual-note"><span class="note-dot"></span> Ruang belajar untuk SMP & SMA</div>
+        <div class="decor decor-one"></div><div class="decor decor-two"></div>
+    </div>
+    <div class="auth-panel">
+      <div class="auth-card">
+        <div class="brand brand-dark"><span class="brand-mark">E</span><span>EduSpace</span></div>
+        <div class="auth-heading"><h2 id="authTitle">Selamat datang kembali</h2><p id="authSubtitle">Masuk untuk melanjutkan kegiatan belajarmu.</p></div>
+        <form id="loginForm" class="form-stack">
+          <label>Email<input id="loginEmail" type="email" placeholder="nama@email.com" required autocomplete="email"></label>
+          <label>Kata sandi<input id="loginPassword" type="password" placeholder="Masukkan kata sandi" required autocomplete="current-password"></label>
+          <button class="btn btn-primary btn-full" type="submit">Masuk ke EduSpace <span>→</span></button>
+        </form>
+        <form id="registerForm" class="form-stack hidden">
+          <label>Nama lengkap<input id="registerName" type="text" placeholder="Nama lengkap" required minlength="2"></label>
+          <label>Email<input id="registerEmail" type="email" placeholder="nama@email.com" required autocomplete="email"></label>
+          <label>Kata sandi<input id="registerPassword" type="password" placeholder="Minimal 6 karakter" required minlength="6" autocomplete="new-password"></label>
+          <label>Daftar sebagai<select id="registerRole"><option value="student">Siswa</option><option value="teacher">Guru (perlu aktivasi admin)</option></select></label>
+          <button class="btn btn-primary btn-full" type="submit">Buat akun <span>→</span></button>
+          <p class="tiny-hint">Akun guru perlu diaktifkan oleh admin agar hak akses pengajar tidak dapat disalahgunakan.</p>
+        </form>
+        <p class="auth-switch"><span id="switchText">Belum punya akun?</span> <button id="switchAuth" class="text-button" type="button">Daftar sekarang</button></p>
+        <p class="auth-foot">Dengan masuk, kamu menyetujui penggunaan EduSpace untuk kegiatan pembelajaran.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand brand-dark sidebar-brand"><span class="brand-mark">E</span><span>EduSpace</span></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span> Ringkasan</button>
+        <button class="nav-item" data-page="classes"><span class="nav-icon">▤</span> Kelas saya</button>
+        <button class="nav-item" data-page="tasks"><span class="nav-icon">☑</span> Tugas & ujian</button>
+        <button class="nav-item" data-page="materials"><span class="nav-icon">▧</span> Materi belajar</button>
+        <button class="nav-item" data-page="chat"><span class="nav-icon">◌</span> Diskusi kelas</button>
+        <button class="nav-item" data-page="meeting"><span class="nav-icon">▣</span> Video meeting</button>
+        <button class="nav-item" data-page="grades"><span class="nav-icon">▥</span> Nilai</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-card"><div class="help-icon">✦</div><strong>Ruang untuk bertanya</strong><p>Belajar jadi lebih mudah saat dilakukan bersama.</p></div><button id="logoutBtn" class="logout-btn">↪ Keluar akun</button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button id="menuBtn" class="menu-btn" aria-label="Buka menu">☰</button><div class="breadcrumb">EduSpace <span>/</span> <strong id="pageLabel">Ringkasan</strong></div><div class="topbar-right"><span class="role-chip" id="roleChip">SISWA</span><div class="user-mini"><div class="avatar" id="userAvatar">U</div><div><strong id="userName">Pengguna</strong><small id="userRole">Siswa</small></div></div></div></header>
+      <div class="content-wrap">
+        <section id="page-overview" class="page active-page">
+          <div class="welcome-row"><div><span class="eyebrow blue-eyebrow">RUANG BELAJAR DIGITAL</span><h1 id="welcomeTitle">Selamat datang!</h1><p id="welcomeDesc">Mari lanjutkan hal baik yang sedang kamu pelajari.</p></div><div class="date-pill" id="todayLabel">Hari ini</div></div>
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="section-heading"><div><h2>Aktivitas pembelajaran</h2><p>Informasi terbaru dari kelasmu.</p></div><button class="btn btn-soft" data-goto="classes">Lihat kelas <span>→</span></button></div>
+          <div class="overview-grid"><div class="panel activity-panel"><div class="panel-head"><h3>Terbaru</h3><span class="muted-label">PEMBARUAN</span></div><div id="activityList" class="activity-list"><div class="empty-state">Belum ada aktivitas. Bergabunglah dengan kelas untuk memulai.</div></div></div><div class="panel quick-panel"><div class="panel-head"><h3>Akses cepat</h3></div><button class="quick-link" data-goto="tasks"><span class="quick-icon lilac">☑</span><span><strong>Tugas & ujian</strong><small>Lihat pekerjaanmu</small></span><b>→</b></button><button class="quick-link" data-goto="chat"><span class="quick-icon mint">◌</span><span><strong>Diskusi kelas</strong><small>Tanya dan berbagi</small></span><b>→</b></button><button class="quick-link" data-goto="meeting"><span class="quick-icon peach">▣</span><span><strong>Video meeting</strong><small>Masuk ruang virtual</small></span><b>→</b></button></div></div>
+        </section>
+        <section id="page-classes" class="page"><div class="page-heading"><div><span class="eyebrow blue-eyebrow">RUANG KOLABORASI</span><h1>Kelas saya</h1><p>Kelola kelas dan temukan teman belajar.</p></div><div id="classActions"></div></div><div id="classesGrid" class="cards-grid"></div></section>
+        <section id="page-tasks" class="page"><div class="page-heading"><div><span class="eyebrow blue-eyebrow">LATIHAN & EVALUASI</span><h1>Tugas dan ujian</h1><p>Kerjakan tugas, ikuti ujian, dan pantau hasilnya.</p></div><div id="taskActions"></div></div><div id="tasksList" class="stack-list"></div></section>
+        <section id="page-materials" class="page"><div class="page-heading"><div><span class="eyebrow blue-eyebrow">PERPUSTAKAAN DIGITAL</span><h1>Materi belajar</h1><p>Semua bahan pembelajaran dalam satu tempat.</p></div><div id="materialActions"></div></div><div id="materialsGrid" class="cards-grid"></div></section>
+        <section id="page-chat" class="page"><div class="page-heading"><div><span class="eyebrow blue-eyebrow">DISKUSI & TANYA JAWAB</span><h1>Diskusi kelas</h1><p>Berbagi pemikiran bersama guru dan teman sekelas.</p></div></div><div class="chat-layout panel"><aside class="chat-rooms"><h3>Ruang diskusi</h3><div id="chatRoomList" class="room-list"></div></aside><div class="chat-main"><div class="chat-header"><div class="chat-room-avatar">✦</div><div><strong id="chatRoomTitle">Pilih kelas</strong><small id="chatRoomSub">Diskusi berlangsung di sini</small></div></div><div id="chatMessages" class="chat-messages"><div class="empty-state">Pilih kelas untuk melihat percakapan.</div></div><form id="chatForm" class="chat-compose"><input id="chatInput" placeholder="Tulis pesan atau pertanyaan..." maxlength="1000" autocomplete="off"><button class="btn btn-primary" type="submit">Kirim ↑</button></form></div></div></section>
+        <section id="page-meeting" class="page"><div class="page-heading"><div><span class="eyebrow blue-eyebrow">KELAS VIRTUAL</span><h1>Video meeting</h1><p>Bertatap muka dan berdiskusi langsung secara online.</p></div></div><div class="meeting-layout"><div class="panel meeting-setup"><div class="meeting-symbol">▣</div><h2>Mulai ruang pertemuan</h2><p>Pilih kelas dan buat nama ruang. Bagikan nama ruang kepada peserta agar mereka dapat bergabung.</p><form id="meetingForm" class="form-stack"><label>Kelas<select id="meetingClass" required></select></label><label>Nama ruang<input id="meetingRoom" placeholder="Contoh: matematika-kelas-9a" required pattern="[A-Za-z0-9-]{3,50}"></label><button class="btn btn-primary btn-full" type="submit">Masuk video meeting →</button></form><p class="tiny-hint">Video meeting disediakan melalui Jitsi. Kamera dan mikrofon memerlukan izin browser.</p></div><div class="panel meeting-info"><span class="eyebrow blue-eyebrow">TIPS KELAS VIRTUAL</span><h2>Belajar bersama, dari mana saja.</h2><ul><li>Gunakan nama ruang yang mudah diingat.</li><li>Bagikan nama ruang hanya kepada anggota kelas.</li><li>Gunakan headset untuk mengurangi gema suara.</li><li>Pastikan koneksi internet stabil.</li></ul><div class="meeting-illustration"> <span>◉</span><span>◉</span><span>◉</span><i>+</i></div></div></div><div id="meetingFrameWrap" class="panel meeting-frame-wrap hidden"><div class="meeting-frame-head"><div><strong id="meetingFrameTitle">Ruang meeting</strong><small>EduSpace Virtual Room</small></div><button id="leaveMeeting" class="btn btn-soft">Tutup meeting</button></div><div id="jitsiContainer" class="jitsi-container"></div></div></section>
+        <section id="page-grades" class="page"><div class="page-heading"><div><span class="eyebrow blue-eyebrow">HASIL PEMBELAJARAN</span><h1>Nilai</h1><p>Rekap hasil pengerjaan tugas dan ujian.</p></div></div><div class="panel table-panel"><div class="panel-head"><h3>Rekap nilai</h3><span class="muted-label">HASIL TERBARU</span></div><div class="table-scroll"><table><thead><tr><th>Tugas / Ujian</th><th>Kelas</th><th>Nama siswa</th><th>Nilai</th><th>Status</th></tr></thead><tbody id="gradesBody"><tr><td colspan="5" class="empty-cell">Belum ada nilai yang tercatat.</td></tr></tbody></table></div></div></section>
+      </div>
+      <footer class="app-footer">© <span id="yearLabel"></span> EduSpace <span>•</span> Belajar, terhubung, bertumbuh.</footer>
+    </main>
+  </div>
+  <div id="modalRoot"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
